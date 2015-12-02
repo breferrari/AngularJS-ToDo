@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+<head>
+    <title>TODO List</title>
+    <link href="../css/bootstrap.css" rel="stylesheet"/>
+    <link href="../css/bootstrap-theme.css" rel="stylesheet"/>
+
+    <script src="../scripts/angular.js"></script>
+
+    <script>
+       // Here the items array has been removed which stored the data in a locally
+       // declared array.Instead the data will now be loaded from the todo.json file
+       // located on server.
+       var model = {
+        user: "Jignesh"
+       };
+
+       var todoApp = angular.module("todoApp", []);
+
+       /*
+            This is a new addition here.
+            The "run" method is defined by the AngularJS module object.
+            It takes a function that is executed once AngularJS has performed
+            its initial setup and is used for one-off tasks.
+
+            Also note that we specified the $http argument for the function we
+            passed to the "run" method which tells AngularJS we want to use
+            the service object that provides support for making AJAX calls.
+            Using arguments to tell AngularJS what features you require is part
+            of an approach known as DEPENDENCY INJECTION.
+
+            The $http service provides access to low-level AJAX requests.
+            Low level in this case really isn't that low at all until compared
+            with the $resources service that is used to interact with RESTful
+            web services.
+
+            We use $http.get method to make an HTTP GET request to the server
+            for the todo.json file.
+
+            You won’t notice any difference if you navigate to the todo.html
+            file with the browser, but the data is being obtained from the
+            server using a second HTTP request which can be confirmed via
+            Developer Tools in Chrome/IE or Firebug in Firefox.
+       */
+       todoApp.run(function($http){
+         /*
+            The result from the "get" method is a "promise" which is an object
+            used to represent work that will complete in the future.Calling
+            the "success" method on the "promise" object lets us specify a
+            function that will be invoked when the AJAX request to the server
+            has completed and that the JSON data retrieved from the server will
+            be parsed to create a Javascript object and passed to the "success"
+            function as the "data" argument.In present case the data we receive
+            we use it to update the model.
+         */
+         $http.get("todo.json").success(function(data) {
+            model.items = data;
+         });
+       });
+
+       todoApp.filter("checkedItems", function() {
+          return function(items, showComplete) {
+              var resultArr = [];
+              angular.forEach(items, function(item) {
+                if (item.done == false || showComplete == true) {
+                  resultArr.push(item);
+                }
+              });
+              return resultArr;
+          };
+       });
+
+
+       todoApp.controller("ToDoController", function($scope) {
+          $scope.todo = model;
+
+          $scope.incompleteCount = function() {
+            var count = 0;
+            angular.forEach($scope.todo.items, function(item) {
+              if (!item.done) { count++ };
+            });
+            return count;
+          }
+
+          $scope.warningLevel = function() {
+            return $scope.incompleteCount() < 3 ? "label-success" : "label-warning"
+          }
+
+          $scope.addNewItem = function(actionText) {
+            $scope.todo.items.push({ action: actionText, done: false });
+          }
+       });
+
+    </script>
+</head>
+<body ng-controller="ToDoController">
+    <div class="page-header">
+        <h1>
+            {{todo.user}}'s To Do List
+            <span class="label label-default" ng-hide="incompleteCount() == 0"
+                                              ng-class="warningLevel()">
+                {{incompleteCount()}}
+            </span>
+         </h1>
+    </div>
+
+    <div class="panel">
+        <div class="input-group">
+            <input class="form-control" ng-model="actionText"/>
+            <span class="input-group-btn">
+                <button class="btn btn-default"
+                        ng-click="addNewItem(actionText)">
+                    Add
+                </button>
+            </span>
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Done</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="item in todo.items | checkedItems: showComplete | orderBy: 'action' ">
+                    <td>{{item.action}}</td>
+                    <td>
+                        <input type="checkbox" ng-model="item.done" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="checkbox-inline">
+            <label>
+                <input type="checkbox" ng-model="showComplete">
+                Show Complete
+            </label>
+        </div>
+
+    </div>
+</body>
+</html>
