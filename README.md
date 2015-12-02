@@ -1,3 +1,3 @@
 # AngularJS-ToDo
 
--- Persistence stringfying to items in localstorage
+- Persistence stringfying items in localstorage
