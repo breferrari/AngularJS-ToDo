@@ -1,0 +1,35 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Adicionar Categoria</div>
+  <div class="panel-body">
+    <form class="form-group label-floating" name="form" ng-submit="addCategoria()">
+      <label class="control-label" for="novaCategoria">Que categoria deseja adicionar?</label>
+      <input class="form-control" id="novaCategoria" name="novaTarefa" ng-model="novaCategoria" required type="text">
+      <button class="btn btn-success btn-raised btn-block" ng-disabled="form.$invalid">
+        <i class="material-icons">add_circle</i>
+        <span>&nbsp;Adicionar Categoria</span>
+      </button>
+    </form>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Remover Categoria
+    <span class="label label-danger" style="float:right;">
+      Remover a categoria removerá tarefas inclusas nesta.
+    </span>
+  </div>
+  <div class="panel-body">
+    <form class="form-group has-error label-floating" name="form" ng-submit="removerCategoria()">
+      <label class="control-label" for="novaCategoria">Que categoria deseja remover?</label>
+      <select class="form-control" id="emCategoria" name="emCategoria" required>
+        <option value="">
+          -- Escolher Categoria --
+        </option>
+      </select>
+      <button class="btn btn-danger btn-raised btn-block" ng-disabled="form.$invalid">
+        <i class="material-icons">remove_circle</i>
+        <span>&nbsp;Remover Categoria</span>
+      </button>
+    </form>
+  </div>
+</div>

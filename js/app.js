@@ -7,9 +7,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
   //
   // Now set up the states
   $stateProvider
-    .state('home', {
+    .state('tarefas', {
       url: "/",
-      templateUrl: "templates/home.html",
-      controller: 'HomeController'
+      templateUrl: "templates/tarefas.html",
+      controller: 'TarefasController'
+    })
+    .state('categorias', {
+      url: "/categorias",
+      templateUrl: "templates/categorias.html",
+      controller: 'CategoriasController'
     });
 });

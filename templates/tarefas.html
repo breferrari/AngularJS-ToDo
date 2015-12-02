@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Adicionar Tarefa</div>
+  <div class="panel-body">
+    <form name="form" ng-submit="addTodo()">
+      <div class="form-group label-floating">
+        <label class="control-label" for="newTodo">O que precisa ser feito?</label>
+        <input class="form-control" id="newTodo" name="newTodo" ng-model="newTodo" required type="text">
+      </div>
+      <!-- <div class="form-group label-floating">
+        <label class="control-label" for="emCategoria">Em qual categoria?</label>
+        <select class="form-control" id="emCategoria" name="emCategoria" required>
+          <option value="">
+            -- Escolher Categoria --
+          </option>
+        </select>
+      </div> -->
+      <button class="btn btn-success btn-raised btn-block" ng-disabled="form.$invalid">
+        <i class="material-icons">add_circle</i>
+        <span>&nbsp;Adicionar Tarefa</span>
+      </button>
+    </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Tarefas</div>
+  <div class="panel-body">
+    <ul>
+      <li ng-repeat="todo in todos">
+        <input ng-model="todo.done" type="checkbox">
+        <span ng-class="{'done':todo.done}">{{todo.title}}</span>
+      </li>
+    </ul>
+    <button class="btn btn-danger btn-block" ng-click="clearCompleted()">
+      <i class="material-icons">remove_circle</i>
+      <span>&nbsp;Remover Tarefas Completadas</span>
+    </button>
+  </div>
+</div>
