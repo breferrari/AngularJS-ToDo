@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="TpApp">
+
+<head>
+  <meta charset="utf-8">
+  <title>TP3</title>
+  <!-- Fonts & Icons-->
+  <link href='https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono|Roboto+Slab' rel='stylesheet' type='text/css'>
+  <!-- CSS -->
+  <link rel="stylesheet" href="bower_components/onsenui/css/onsenui.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="bower_components/onsenui/css/onsen-css-components.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="bower_components/onsenui/css/onsenui.css" type="text/css" media="all" />
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+</head>
+
+<body>
+  <!-- NavBar -->
+  <div class="navigation-bar navigation-bar--material">
+    <div class="navigation-bar__center navigation-bar--material__center">
+      <span>TP3 - Bloco de Tarefas</span>
+    </div>
+    <!-- <div class="navigation-bar__right navigation-bar--material__right">
+      <span class="toolbar-button toolbar-button--material">
+        <i class="zmdi zmdi-search"></i>
+      </span>
+      <span class="toolbar-button toolbar-button--material">
+        <i class="zmdi zmdi-refresh"></i>
+      </span>
+    </div> -->
+  </div>
+  <!-- End of NavBar -->
+
+  <!-- Content View -->
+  <div class="view" ui-view></div ui-view>
+
+  <!-- Scripts -->
+  <script src="bower_components/onsenui/js/onsenui.min.js"></script>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/onsenui/js/angular-onsenui.min.js"></script>
+  <script src="js/angular-ui-router.min.js"></script>
+  <!-- Page Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/controller.js"></script>
+</body>
+
+</html>

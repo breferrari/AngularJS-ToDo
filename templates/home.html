@@ -1,0 +1,27 @@
+<div class="material-block">
+  <form name="form" ng-submit="addTarefa()">
+    <label>O que precisa ser feito?</label>
+    <input class="text-input--material input-fullsize" name="novaTarefa" ng-model="novaTarefa" placeholder="" required type="text">
+    <button class="button button--material button--large input-button" ng-disabled="form.$invalid">
+      <i class="ion-android-add"></i>
+      <span>&nbsp;Adicionar Tarefa</span>
+    </button>
+  </form>
+</div>
+<div class="material-block">
+  <h4 class="center">Tarefas</h4>
+  <div class="tarefas">
+    <label class="checkbox checkbox--material">
+      <input class="checkbox__input checkbox--material__input" type="checkbox">
+      <div class="checkbox__checkmark checkbox--material__checkmark"></div>
+      <span>{{tarefa}}</span>
+    </label>
+  </div>
+  <button class="button button--material button--large input-button">
+    <i class="ion-trash-b"></i>
+    <span>&nbsp;Remover Tarefas Completadas</span>
+  </button>
+</div>
+<div class="material-block">
+
+</div>
