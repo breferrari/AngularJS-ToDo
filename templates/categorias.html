@@ -2,10 +2,10 @@
   <div class="panel panel-default">
     <div class="panel-heading">Adicionar Categoria</div>
     <div class="panel-body">
-      <form class="form-group label-floating" name="form" ng-submit="addCateg()">
+      <form class="form-group label-floating" name="formAddCateg" ng-submit="addCateg()">
         <label class="control-label" for="newCateg">Que categoria deseja adicionar?</label>
         <input class="form-control" id="newCateg" name="newCateg" ng-model="newCateg" required type="text">
-        <button class="btn btn-success btn-raised btn-block" ng-disabled="form.$invalid">
+        <button class="btn btn-success btn-raised btn-block" ng-disabled="formAddCateg.$invalid">
           <i class="material-icons">add_circle</i>
           <span>&nbsp;Adicionar Categoria</span>
         </button>
@@ -16,16 +16,16 @@
     <div class="panel-heading">
       Remover Categoria
       <span class="label label-danger" style="float:right;">
-        Remover a categoria impedirá que novas tarefas sejam inclusas nesta.
+        Remover uma categoria impedirá que novas tarefas sejam inclusas nesta.
       </span>
     </div>
     <div class="panel-body">
-      <form class="form-group has-error label-floating" name="form" ng-submit="removeCateg()">
+      <form class="form-group has-error label-floating" name="formRmCateg" ng-submit="removeCateg()">
         <label class="control-label" for="rmCateg">Que categoria deseja remover?</label>
         <select class="form-control" id="rmCateg" ng-model="rmCateg" ng-options="categ.cat for categ in categs" required>
           <option value="">-- Escolher categoria --</option>
         </select>
-        <button class="btn btn-danger btn-raised btn-block" ng-disabled="form.$invalid">
+        <button class="btn btn-danger btn-raised btn-block" ng-disabled="formRmCateg.$invalid">
           <i class="material-icons">remove_circle</i>
           <span>&nbsp;Remover Categoria</span>
         </button>

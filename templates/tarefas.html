@@ -2,7 +2,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">Adicionar Tarefa</div>
     <div class="panel-body">
-      <form name="form" ng-submit="addTodo()">
+      <form name="formAddTodo" ng-submit="addTodo()">
         <div class="form-group label-floating">
           <label class="control-label" for="newTodo">O que precisa ser feito?</label>
           <input class="form-control" id="newTodo" name="newTodo" ng-model="newTodo" required type="text">
@@ -13,7 +13,7 @@
             <option value="">-- Escolher categoria --</option>
           </select>
         </div>
-        <button class="btn btn-success btn-raised btn-block" ng-disabled="form.$invalid">
+        <button class="btn btn-success btn-raised btn-block" ng-disabled="formAddTodo.$invalid">
           <i class="material-icons">add_circle</i>
           <span>&nbsp;Adicionar Tarefa</span>
         </button>
@@ -33,8 +33,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-class="{'active':todo.done}" ng-repeat="todo in todos track by $index">
-            <td><input ng-model="todo.done" type="checkbox"></td>
+          <tr ng-class="{'active':todo.done}" ng-repeat="todo in todos track by $index" ng-click="todoCheck(todo)">
+            <td><input ng-model="todo.done" ng-checked="todo.done" type="checkbox"></td>
             <td ng-class="{'done':todo.done}">{{todo.text}}</td>
             <td>{{todo.cat}}</td>
           </tr>
