@@ -10,11 +10,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('tarefas', {
       url: "/",
       templateUrl: "templates/tarefas.html",
-      controller: 'TarefasController'
+      controller: 'RootController'
     })
     .state('categorias', {
       url: "/categorias",
       templateUrl: "templates/categorias.html",
-      controller: 'CategoriasController'
+      controller: 'RootController'
     });
 });
