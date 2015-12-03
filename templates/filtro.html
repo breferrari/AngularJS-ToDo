@@ -1,0 +1,34 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <a ui-sref="categorias">Voltar</a>
+  </div>
+  <div class="panel-body">
+    <span class="label label-success" style="float:right;">
+      Faltam
+      {{remaining()}}
+      de um total de
+      {{todos.length}}
+      a serem concluídas.
+    </span>
+    <table class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <th>
+            <i class="material-icons">playlist_add_check</i>
+          </th>
+          <th>Tarefa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-class="{'active':todo.done}" ng-click="todoCheck(todo)" ng-repeat="todo in todos track by $index">
+          <td><input ng-checked="todo.done" ng-click="todoCheck(todo)" ng-model="todo.done" type="checkbox"></td>
+          <td ng-class="{'done':todo.done}">{{todo.text}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-danger btn-block" ng-click="clearCompleted()">
+      <i class="material-icons">remove_circle</i>
+      <span>&nbsp;Remover Tarefas Completadas</span>
+    </button>
+  </div>
+</div>

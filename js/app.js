@@ -16,5 +16,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: "/categorias",
       templateUrl: "templates/categorias.html",
       controller: 'RootController'
+    })
+    .state('filtro', {
+      url: "/filtro",
+      templateUrl: "templates/filtro.html",
+      controller: 'RootController'
     });
 });

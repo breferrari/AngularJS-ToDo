@@ -10,11 +10,11 @@
       <form id="formAddTodo" name="formAddTodo" ng-submit="addTodo()">
         <div class="form-group label-floating">
           <label class="control-label" for="newTodo">O que precisa ser feito?</label>
-          <input autocomplete="off" class="form-control" id="newTodo" name="newTodo" ng-maxlength=20 ng-minlength=3 ng-model="newTodo" ng-pattern="/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/" required type="text">
+          <input autocomplete="off" class="form-control" id="newTodo" name="newTodo" ng-maxlength=40 ng-minlength=3 ng-model="newTodo" ng-pattern="/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/" required type="text">
           <div class="help-block" ng-show="formAddTodo.newTodo.$dirty && formAddTodo.newTodo.$invalid">
             <div class="error" ng-show="formAddTodo.newTodo.$error.required">É preciso escrever uma tarefa.</div>
             <div class="error" ng-show="formAddTodo.newTodo.$error.minlength">Uma tarefa precisa ter mais de 3 caracteres.</div>
-            <div class="error" ng-show="formAddTodo.newTodo.$error.maxlength">Uma tarefa não pode ter mais do que 20 caracteres.</div>
+            <div class="error" ng-show="formAddTodo.newTodo.$error.maxlength">Uma tarefa não pode ter mais do que 40 caracteres.</div>
             <div class="error" ng-show="formAddTodo.newTodo.$error.patern">Uma tarefa só pode ter letras.</div>
           </div>
         </div>

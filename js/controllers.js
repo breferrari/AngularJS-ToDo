@@ -39,6 +39,31 @@ app.controller('RootController', ['$scope', function($scope) { // Root
     return count;
   };
 
+  $scope.todoCheck = function(todo) {
+    todo.done = !todo.done;
+    $scope.saveTodos();
+  };
+
+  $scope.clearCompleted = function() {
+    var oldTodos = $scope.todos;
+    $scope.todos = [];
+    angular.forEach(oldTodos, function(todo) {
+      if (!todo.done)
+        $scope.todos.push(todo);
+    });
+    localStorage.setItem('todos', JSON.stringify($scope.todos));
+  };
+
+  $scope.saveTodos = function() {
+    console.log("saving");
+    var todos = $scope.todos;
+    $scope.todos = [];
+    angular.forEach(todos, function(todo) {
+      $scope.todos.push(todo);
+    });
+    localStorage.setItem('todos', JSON.stringify($scope.todos));
+  };
+
   // app.filter("getByCategory", function () {
   //     return function (items, category) {
   //         var filtered = [];
@@ -92,20 +117,6 @@ app.controller('TarefasController', ['$scope', function($scope) { // Tarefas
       $scope.newTodo = '';
       localStorage.setItem('todos', JSON.stringify($scope.todos));
     }
-  };
-
-  $scope.todoCheck = function(todo) {
-    todo.done = !todo.done;
-  };
-
-  $scope.clearCompleted = function() {
-    var oldTodos = $scope.todos;
-    $scope.todos = [];
-    angular.forEach(oldTodos, function(todo) {
-      if (!todo.done)
-        $scope.todos.push(todo);
-    });
-    localStorage.setItem('todos', JSON.stringify($scope.todos));
   };
 }]);
 
