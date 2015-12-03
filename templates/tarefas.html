@@ -61,7 +61,7 @@
         </thead>
         <tbody>
           <tr ng-class="{'active':todo.done}" ng-click="todoCheck(todo)" ng-repeat="todo in todos track by $index">
-            <td><input ng-checked="todo.done" ng-model="todo.done" type="checkbox"></td>
+            <td><input ng-checked="todo.done" ng-click="todoCheck(todo)" ng-model="todo.done" type="checkbox"></td>
             <td ng-class="{'done':todo.done}">{{todo.text}}</td>
             <td>{{todo.cat}}</td>
           </tr>
