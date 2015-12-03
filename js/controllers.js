@@ -2,22 +2,32 @@ app.controller('RootController', ['$scope', function($scope) { // Root
   $scope.savedToDos = localStorage.getItem('todos');
   $scope.todos = (localStorage.getItem('todos') !== null) ? JSON.parse($scope.savedToDos) : [{
     'text': 'Aprender AngularJS',
-    'cat': 'Bloco Fixo',
-    'done': false
+    'cat': 'Programação',
+    'done': true
   }, {
-    'text': 'Fazer um app com Angular',
-    'cat': 'Bloco Fixo',
+    'text': 'Fazer um app com AngularJS',
+    'cat': 'Programação',
+    'done': true
+  }, {
+    'text': 'Apresentar Projeto Final',
+    'cat': 'Faculdade',
     'done': false
   }];
   localStorage.setItem('todos', JSON.stringify($scope.todos));
 
   $scope.savedCategs = localStorage.getItem('categs');
   $scope.categs = (localStorage.getItem('categs') !== null) ? JSON.parse($scope.savedCategs) : [{
-    'cat': 'Bloco Fixo'
+    'cat': 'Casa'
   }, {
-    'cat': 'Bloco Padrão'
+    'cat': 'Trabalho'
   }, {
-    'cat': 'Bloco Padrão II'
+    'cat': 'Compras'
+  }, {
+    'cat': 'Mercado'
+  }, {
+    'cat': 'Programação'
+  }, {
+    'cat': 'Estudos'
   }];
   localStorage.setItem('categs', JSON.stringify($scope.categs));
 
