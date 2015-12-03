@@ -20,6 +20,17 @@ app.controller('RootController', ['$scope', function($scope) { // Root
     'cat': 'Bloco Padrão II'
   }];
   localStorage.setItem('categs', JSON.stringify($scope.categs));
+
+  // app.filter("getByCategory", function () {
+  //     return function (items, category) {
+  //         var filtered = [];
+  //         angular.forEach(items, function (item) {
+  //             if ((item.category.name === category) || !angular.isDefined(category))
+  //                 filtered.push(item);
+  //         });
+  //         return filtered;
+  //     };
+  // });
 }]);
 
 app.controller('TarefasController', ['$scope', function($scope) { // Tarefas
