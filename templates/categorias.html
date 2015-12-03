@@ -21,12 +21,12 @@
     <div class="panel-body">
       <form class="form-group label-floating" id="formAddCateg" name="formAddCateg" ng-submit="addCateg()">
         <label class="control-label" for="newCateg">Que categoria deseja adicionar?</label>
-        <input autocomplete="off" class="form-control" id="newCateg" name="newCateg" ng-maxlength=20 ng-minlength=3 ng-model="newCateg" ng-pattern="/^[a-zA-Z]+$/" required type="text">
+        <input autocomplete="off" class="form-control" id="newCateg" name="newCateg" ng-maxlength=20 ng-minlength=3 ng-model="newCateg" ng-pattern="/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/" required type="text">
         <div class="help-block" ng-show="formAddCateg.newCateg.$dirty && formAddCateg.newCateg.$invalid">
           <div class="error" ng-show="formAddCateg.newCateg.$error.required">É preciso escrever uma categoria.</div>
-          <div class="error" ng-show="formAddCateg.newCateg.$error.minlength">Uma categoria tem que ter mais de 3 caracteres.</div>
+          <div class="error" ng-show="formAddCateg.newCateg.$error.minlength">Uma categoria precisa ter mais de 3 caracteres.</div>
           <div class="error" ng-show="formAddCateg.newCateg.$error.maxlength">Uma categoria não pode ter mais do que 20 caracteres.</div>
-          <div class="error" ng-show="formAddCateg.newCateg.$error.patern">Uma categoria só pode ter letras.</div>
+          <div class="error" ng-show="formAddCateg.newCateg.$error.pattern">Uma categoria só pode ter letras.</div>
         </div>
         <button class="btn btn-success btn-raised btn-block" ng-disabled="formAddCateg.$invalid">
           <i class="material-icons">add_circle</i>
