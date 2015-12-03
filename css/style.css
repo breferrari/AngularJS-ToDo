@@ -33,6 +33,7 @@ ul {
   padding-left: 10%;
   padding-right: 10%;
   padding-top: 3%;
+  margin-top: 60px; /*Navbar Size*/
 }
 .input-button {
   margin-top: 5px;
