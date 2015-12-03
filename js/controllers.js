@@ -52,16 +52,17 @@ app.controller('RootController', ['$scope', function($scope) { // Root
         $scope.todos.push(todo);
     });
     localStorage.setItem('todos', JSON.stringify($scope.todos));
+    console.log("-- ToDos saved on localStorage --");
   };
 
   $scope.saveTodos = function() {
-    console.log("saving");
     var todos = $scope.todos;
     $scope.todos = [];
     angular.forEach(todos, function(todo) {
       $scope.todos.push(todo);
     });
     localStorage.setItem('todos', JSON.stringify($scope.todos));
+    console.log("-- ToDos saved on localStorage --");
   };
 
   // app.filter("getByCategory", function () {
