@@ -12,11 +12,22 @@
     </div>
   </div>
   <div class="panel panel-default">
-    <div class="panel-heading">Adicionar Categoria</div>
+    <div class="panel-heading">
+      Adicionar Categoria
+      <span class="label label-info" style="float:right;">
+        Categorias não podem ser repetidas.
+      </span>
+    </div>
     <div class="panel-body">
-      <form class="form-group label-floating" name="formAddCateg" id="formAddCateg" ng-submit="addCateg()">
+      <form class="form-group label-floating" id="formAddCateg" name="formAddCateg" ng-submit="addCateg()">
         <label class="control-label" for="newCateg">Que categoria deseja adicionar?</label>
-        <input class="form-control" id="newCateg" name="newCateg" ng-model="newCateg" required type="text">
+        <input autocomplete="off" class="form-control" id="newCateg" name="newCateg" ng-maxlength=20 ng-minlength=3 ng-model="newCateg" ng-pattern="/^[a-zA-Z]+$/" required type="text">
+        <div class="help-block" ng-show="formAddCateg.newCateg.$dirty && formAddCateg.newCateg.$invalid">
+          <div class="error" ng-show="formAddCateg.newCateg.$error.required">É preciso escrever uma categoria.</div>
+          <div class="error" ng-show="formAddCateg.newCateg.$error.minlength">Uma categoria tem que ter mais de 3 caracteres.</div>
+          <div class="error" ng-show="formAddCateg.newCateg.$error.maxlength">Uma categoria não pode ter mais do que 20 caracteres.</div>
+          <div class="error" ng-show="formAddCateg.newCateg.$error.patern">Uma categoria só pode ter letras.</div>
+        </div>
         <button class="btn btn-success btn-raised btn-block" ng-disabled="formAddCateg.$invalid">
           <i class="material-icons">add_circle</i>
           <span>&nbsp;Adicionar Categoria</span>

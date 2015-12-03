@@ -41,3 +41,6 @@ ul {
   text-decoration: line-through;
   color: grey;
 }
+.error {
+  color: red;
+}

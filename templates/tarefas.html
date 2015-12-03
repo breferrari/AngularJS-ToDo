@@ -1,13 +1,24 @@
 <div ng-controller="TarefasController">
   <div class="panel panel-default">
-    <div class="panel-heading">Adicionar Tarefa</div>
+    <div class="panel-heading">
+      Adicionar Tarefa
+      <span class="label label-info" style="float:right;">
+        Tarefas precisam ter uma categoria e não podem ser repetidas na mesma.
+      </span>
+    </div>
     <div class="panel-body">
       <form id="formAddTodo" name="formAddTodo" ng-submit="addTodo()">
         <div class="form-group label-floating">
           <label class="control-label" for="newTodo">O que precisa ser feito?</label>
-          <input class="form-control" id="newTodo" name="newTodo" ng-model="newTodo" required type="text">
+          <input autocomplete="off" class="form-control" id="newTodo" name="newTodo" ng-maxlength=20 ng-minlength=3 ng-model="newTodo" ng-pattern="/^[a-zA-Z]+$/" required type="text">
+          <div class="help-block" ng-show="formAddTodo.newTodo.$dirty && formAddTodo.newTodo.$invalid">
+            <div class="error" ng-show="formAddTodo.newTodo.$error.required">É preciso escrever uma tarefa.</div>
+            <div class="error" ng-show="formAddTodo.newTodo.$error.minlength">Uma tarefa tem que ter mais de 3 caracteres.</div>
+            <div class="error" ng-show="formAddTodo.newTodo.$error.maxlength">Uma tarefa não pode ter mais do que 20 caracteres.</div>
+            <div class="error" ng-show="formAddTodo.newTodo.$error.patern">Uma tarefa só pode ter letras.</div>
+          </div>
         </div>
-        <div class="form-group">
+        <div class="form-group label-floating">
           <label class="control-label" for="inCateg">Em qual categoria?</label>
           <select class="form-control" id="inCateg" ng-model="inCateg" ng-options="categ.cat for categ in categs" required>
             <option value="">-- Escolher categoria --</option>
@@ -20,9 +31,10 @@
       </form>
     </div>
   </div>
-
   <div class="panel panel-default">
-    <div class="panel-heading">Tarefas</div>
+    <div class="panel-heading">
+      Tarefas
+    </div>
     <div class="panel-body">
       <div class="form-group label-floating" name="formFilter">
         <label class="control-label" for="filterCateg">Que categoria deseja filtrar?</label>
@@ -30,6 +42,13 @@
           <option value="">-- Escolher Filtro --</option>
         </select>
       </div>
+      <span class="label label-success" style="float:right;">
+        Faltam
+        {{remaining()}}
+        de um total de
+        {{todos.length}}
+        a serem concluídas.
+      </span>
       <table class="table table-striped table-hover ">
         <thead>
           <tr>

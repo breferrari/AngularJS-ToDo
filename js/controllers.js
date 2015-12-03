@@ -21,6 +21,14 @@ app.controller('RootController', ['$scope', function($scope) { // Root
   }];
   localStorage.setItem('categs', JSON.stringify($scope.categs));
 
+  $scope.remaining = function() {
+    var count = 0;
+    angular.forEach($scope.todos, function(todo) {
+      count += todo.done ? 0 : 1;
+    });
+    return count;
+  };
+
   // app.filter("getByCategory", function () {
   //     return function (items, category) {
   //         var filtered = [];
