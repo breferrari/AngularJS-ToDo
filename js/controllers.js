@@ -82,11 +82,28 @@ app.controller('TarefasController', ['$scope', function($scope) { // Tarefas
 
 app.controller('CategoriasController', ['$scope', function($scope) { // Categorias
   $scope.addCateg = function() {
-    $scope.categs.push({
-      'cat': $scope.newCateg
-    });
-    $scope.newCateg = '';
-    localStorage.setItem('categs', JSON.stringify($scope.categs));
+    var addToArrayCateg = true;
+    for (var z = 0; z < $scope.categs.length; z++) {
+      if ($scope.categs[z].cat === $scope.newCateg) {
+        addToArrayCateg = false;
+        swal({
+          title: "Categoria já existe!",
+          type: "error",
+          timer: 1000,
+          showConfirmButton: false
+        });
+        $(".formAddCateg").submit(function(e) {
+          e.preventDefault();
+        });
+      }
+    }
+    if (addToArrayCateg) {
+      $scope.categs.push({
+        'cat': $scope.newCateg
+      });
+      $scope.newCateg = '';
+      localStorage.setItem('categs', JSON.stringify($scope.categs));
+    }
   };
   $scope.removeCateg = function() {
     var oldCategs = $scope.categs;
