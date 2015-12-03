@@ -1,4 +1,4 @@
-var app = angular.module("TpApp", ['ui.router']);
+var app = angular.module("TpApp", ['ui.router', 'angular.filter']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
   //

@@ -31,8 +31,14 @@ ul {
   font-size: 15px;
   vertical-align: text-bottom;
 }
+.small-arrow {
+  font-size: 13px;
+}
 .highlight:hover {
   color: grey;
+}
+.no-underline {
+  text-decoration: none;
 }
 
 /* View Modifications */

@@ -21,8 +21,12 @@
             <th>
               <i class="material-icons">playlist_add_check</i>
             </th>
-            <th class="highlight" ng-click="orderTodo = (orderTodo === 'text' ? '-text' : 'text')">Tarefa&nbsp;<i class="material-icons small-icon" ng-show="orderTodo == 'text' || orderTodo == '-text'">import_export</i></th>
-            <th class="highlight" ng-click="orderTodo = (orderTodo === 'cat' ? '-cat' : 'cat')">Categoria&nbsp;<i class="material-icons small-icon" ng-show="orderTodo == 'cat' || orderTodo == '-cat'">import_export</i></th>
+            <th class="highlight" ng-click="orderTodo = (orderTodo === 'text' ? '-text' : 'text')">Tarefa&nbsp;
+              <i class="material-icons small-icon" ng-show="orderTodo == 'text' || orderTodo == '-text'">import_export</i>
+            </th>
+            <th class="highlight" ng-click="orderTodo = (orderTodo === 'cat' ? '-cat' : 'cat')">Categoria&nbsp;
+              <i class="material-icons small-icon" ng-show="orderTodo == 'cat' || orderTodo == '-cat'">import_export</i>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -60,7 +64,7 @@
         </div>
         <div class="form-group label-floating">
           <label class="control-label" for="inCateg">Em qual categoria?</label>
-          <select class="form-control" id="inCateg" ng-model="inCateg" ng-options="categ.cat for categ in categs" required>
+          <select class="form-control" id="inCateg" ng-model="inCateg" ng-options="categ.cat for categ in categs | orderBy: 'cat'" required>
             <option value="">-- Escolher categoria --</option>
           </select>
         </div>
