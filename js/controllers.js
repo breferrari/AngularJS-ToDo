@@ -1,4 +1,5 @@
-app.controller('RootController', ['$scope', function($scope) { // Root
+app.controller('RootController', ['$scope', '$filter', function($scope, $filter) { // Root
+  $scope.orderTodo = 'text';
   $scope.savedToDos = localStorage.getItem('todos');
   $scope.todos = (localStorage.getItem('todos') !== null) ? JSON.parse($scope.savedToDos) : [{
     'text': 'Aprender AngularJS',
@@ -64,17 +65,6 @@ app.controller('RootController', ['$scope', function($scope) { // Root
     localStorage.setItem('todos', JSON.stringify($scope.todos));
     console.log("-- ToDos saved on localStorage --");
   };
-
-  // app.filter("getByCategory", function () {
-  //     return function (items, category) {
-  //         var filtered = [];
-  //         angular.forEach(items, function (item) {
-  //             if ((item.category.name === category) || !angular.isDefined(category))
-  //                 filtered.push(item);
-  //         });
-  //         return filtered;
-  //     };
-  // });
 }]);
 
 app.controller('TarefasController', ['$scope', function($scope) { // Tarefas
@@ -101,6 +91,15 @@ app.controller('TarefasController', ['$scope', function($scope) { // Tarefas
       });
     }
     if ((addToArrayToDo === true) && (addToArrayCat === true)) {
+      $scope.todos.push({
+        'text': $scope.newTodo,
+        'cat': $scope.inCateg.cat,
+        'done': false
+      });
+      $scope.newTodo = '';
+      localStorage.setItem('todos', JSON.stringify($scope.todos));
+    }
+    if ((addToArrayToDo === true) && (addToArrayCat === false)) {
       $scope.todos.push({
         'text': $scope.newTodo,
         'cat': $scope.inCateg.cat,

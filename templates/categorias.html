@@ -1,11 +1,11 @@
 <div ng-controller="CategoriasController">
   <div class="panel panel-default">
-    <div class="panel-heading">Categorias Existentes</div>
+    <div class="panel-heading">Categorias com Tarefas Existentes</div>
     <div class="panel-body">
       <table class="table table-striped table-hover">
         <tbody>
-          <tr ng-repeat="categ in categs track by $index">
-            <td ui-sref="filtro">{{categ.cat}}</td>
+          <tr ng-repeat="todo in todos track by $index">
+            <td ui-sref="filtro">{{todo.cat}}</td>
           </tr>
         </tbody>
       </table>
