@@ -23,7 +23,3 @@ app.config(function($stateProvider, $urlRouterProvider) {
       controller: 'RootController'
     });
 });
-
-function isInArray(value, array) {
-  return array.indexOf(value) > -1;
-}
