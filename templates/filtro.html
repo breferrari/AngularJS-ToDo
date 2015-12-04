@@ -5,28 +5,28 @@
   <div class="panel-body">
     <span class="label label-success" style="float:right;">
       Faltam
-      {{remaining()}}
-      de um total de
-      {{todos.length}}
-      a serem concluídas.
+      {{remainingFilter()}}
+      tarefas nesta categoria.
     </span>
-    <table class="table table-striped table-hover ">
+    <table class="table table-striped table-hover noselect">
       <thead>
         <tr>
           <th>
             <i class="material-icons">playlist_add_check</i>
           </th>
-          <th>Tarefas em Categoria</th>
+          <th class="highlight" ng-click="orderTodo = (orderTodo === 'text' ? '-text' : 'text')">Tarefas em {{catToFilter}}&nbsp;
+            <i class="material-icons small-icon" ng-show="orderTodo == 'text' || orderTodo == '-text'">import_export</i>
+          </th>
         </tr>
       </thead>
       <tbody>
-        <tr ng-class="{'active':todo.done}" ng-click="todoCheck(todo)" ng-repeat="todo in todos track by $index">
+        <tr ng-class="{'active':todo.done}" ng-click="todoCheck(todo)" ng-repeat="todo in todos | orderBy: orderTodo | filter: catToFilter track by $index">
           <td><input ng-checked="todo.done" ng-click="todoCheck(todo)" ng-model="todo.done" type="checkbox"></td>
           <td ng-class="{'done':todo.done}">{{todo.text}}</td>
         </tr>
       </tbody>
     </table>
-    <button class="btn btn-danger btn-block" ng-click="clearCompleted()">
+    <button class="btn btn-danger btn-block" ng-click="clearCompletedFiltered()">
       <i class="material-icons">remove_circle</i>
       <span>&nbsp;Remover Tarefas Completadas</span>
     </button>

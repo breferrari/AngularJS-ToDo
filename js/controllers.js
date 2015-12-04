@@ -1,5 +1,8 @@
 app.controller('RootController', ['$scope', '$filter', function($scope, $filter) { // Root
   $scope.orderTodo = 'text';
+
+  $scope.catToFilter = localStorage.getItem('catToFilter');
+
   $scope.savedToDos = localStorage.getItem('todos');
   $scope.todos = (localStorage.getItem('todos') !== null) ? JSON.parse($scope.savedToDos) : [{
     'text': 'Aprender AngularJS',
@@ -40,6 +43,15 @@ app.controller('RootController', ['$scope', '$filter', function($scope, $filter)
     return count;
   };
 
+  $scope.remainingFilter = function() {
+    var count = 0;
+    angular.forEach($scope.todos, function(todo) {
+      if (todo.cat == $scope.catToFilter)
+        count += todo.done ? 0 : 1;
+    });
+    return count;
+  };
+
   $scope.todoCheck = function(todo) {
     todo.done = !todo.done;
     $scope.saveTodos();
@@ -56,6 +68,19 @@ app.controller('RootController', ['$scope', '$filter', function($scope, $filter)
     console.log("-- ToDos saved on localStorage --");
   };
 
+  $scope.clearCompletedFiltered = function() {
+    var oldTodos = $scope.todos;
+    $scope.todos = [];
+    angular.forEach(oldTodos, function(todo) {
+      if (!todo.done)
+        $scope.todos.push(todo);
+      if (todo.cat != $scope.catToFilter)
+        $scope.todos.push(todo);
+    });
+    localStorage.setItem('todos', JSON.stringify($scope.todos));
+    console.log("-- ToDos saved on localStorage --");
+  };
+
   $scope.saveTodos = function() {
     var todos = $scope.todos;
     $scope.todos = [];
@@ -64,6 +89,12 @@ app.controller('RootController', ['$scope', '$filter', function($scope, $filter)
     });
     localStorage.setItem('todos', JSON.stringify($scope.todos));
     console.log("-- ToDos saved on localStorage --");
+  };
+
+  $scope.filterCateg = function(categ) {
+    $scope.catToFilter = categ;
+    localStorage.setItem('catToFilter', $scope.catToFilter);
+    console.log("-- catToFilter saved on localStorage --");
   };
 }]);
 
