@@ -1,0 +1,26 @@
+{
+  "name": "angularjs-todo",
+  "homepage": "https://github.com/breferrari/angularjs-todo",
+  "authors": [
+    "Brenno Ferrari <brennoferrari@gmail.com>"
+  ],
+  "description": "AngularJS ToDo App",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-filter": "~0.5.8",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap-material-design": "~0.5.1",
+    "bootstrap": "~3.3.6",
+    "bootstrap-sweetalert": "~0.4.5"
+  }
+}
