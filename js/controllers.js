@@ -186,3 +186,55 @@ app.controller('CategoriasController', ['$scope', function($scope) { // Categori
     localStorage.setItem('categs', JSON.stringify($scope.categs));
   };
 }]);
+app.controller('FiltragemController', ['$scope', function($scope) { // Filtro
+  $scope.addTodo = function() {
+    var addToArrayToDo = true;
+    var addToArrayCat = true;
+
+    for (var i = 0; i < $scope.todos.length; i++) {
+      if ($scope.todos[i].text === $scope.newTodo) {
+        addToArrayToDo = false;
+      }
+    }
+    for (var x = 0; x < $scope.todos.length; x++) {
+      if ($scope.todos[x].cat === $scope.catToFilter) {
+        addToArrayCat = false;
+      }
+    }
+    if ((addToArrayToDo === false) && (addToArrayCat === false)) {
+      swal({
+        title: "Tarefa já existe!",
+        type: "error",
+        timer: 1000,
+        showConfirmButton: false
+      });
+    }
+    if ((addToArrayToDo === true) && (addToArrayCat === true)) {
+      $scope.todos.push({
+        'text': $scope.newTodo,
+        'cat': $scope.catToFilter,
+        'done': false
+      });
+      $scope.newTodo = '';
+      localStorage.setItem('todos', JSON.stringify($scope.todos));
+    }
+    if ((addToArrayToDo === true) && (addToArrayCat === false)) {
+      $scope.todos.push({
+        'text': $scope.newTodo,
+        'cat': $scope.catToFilter,
+        'done': false
+      });
+      $scope.newTodo = '';
+      localStorage.setItem('todos', JSON.stringify($scope.todos));
+    }
+    if ((addToArrayToDo === false) && (addToArrayCat === true)) {
+      $scope.todos.push({
+        'text': $scope.newTodo,
+        'cat': $scope.catToFilter,
+        'done': false
+      });
+      $scope.newTodo = '';
+      localStorage.setItem('todos', JSON.stringify($scope.todos));
+    }
+  };
+}]);
