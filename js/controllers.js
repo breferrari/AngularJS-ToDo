@@ -72,9 +72,9 @@ app.controller('RootController', ['$scope', '$filter', function($scope, $filter)
     var oldTodos = $scope.todos;
     $scope.todos = [];
     angular.forEach(oldTodos, function(todo) {
-      if (!todo.done)
-        $scope.todos.push(todo);
       if (todo.cat != $scope.catToFilter)
+        $scope.todos.push(todo);
+      if (todo.cat == $scope.catToFilter && !todo.done)
         $scope.todos.push(todo);
     });
     localStorage.setItem('todos', JSON.stringify($scope.todos));
