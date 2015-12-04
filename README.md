@@ -1,7 +1,7 @@
 AngularJS ToDo
 =====================
 
-Assessment do bloco de Frameworks Front-end e Conexão com Back-end do curso de Análise e Desenvolvimento de Sistemas do Instituto INFNET.
+Assessment do bloco de Frameworks Front-end e Conexão com Back-end da graduação em Análise e Desenvolvimento de Sistemas do Instituto INFNET.
 
 ## O que é?
 Uma aplicação de bloco de tarefas. Tarefas são inclusas por categoria e podem ser filtradas conforme necessário.
