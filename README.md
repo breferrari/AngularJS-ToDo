@@ -1,4 +1,4 @@
-AngularJS ToDo v1.0
+AngularJS ToDo
 =====================
 
 ## O que é?
