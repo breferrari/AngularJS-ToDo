@@ -41,6 +41,13 @@ ul {
   text-decoration: none;
 }
 
+.badge-info {
+  background-color: #03a9f4;
+}
+
+.badge-success {
+  background-color: #4caf50;
+}
 /* View Modifications */
 
 .view {
@@ -68,4 +75,10 @@ ul {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+    cursor: pointer;
 }

@@ -52,6 +52,33 @@ app.controller('RootController', ['$scope', '$filter', function($scope, $filter)
     return count;
   };
 
+  $scope.remainingCateg = function(cat) {
+    var count = 0;
+    angular.forEach($scope.todos, function(todo) {
+      if (todo.cat == cat)
+        count++;
+    });
+    return count;
+  };
+
+  $scope.remainingCategLeft = function(cat) {
+    var count = 0;
+    angular.forEach($scope.todos, function(todo) {
+      if (todo.cat == cat)
+        count += todo.done ? 0 : 1;
+    });
+    return count;
+  };
+
+  $scope.remainingCategDone = function(cat) {
+    var count = 0;
+    angular.forEach($scope.todos, function(todo) {
+      if (todo.cat == cat)
+        count += !todo.done ? 0 : 1;
+    });
+    return count;
+  };
+
   $scope.todoCheck = function(todo) {
     todo.done = !todo.done;
     $scope.saveTodos();
