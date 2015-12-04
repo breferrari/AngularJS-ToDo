@@ -11,7 +11,14 @@
         <tbody>
           <tr ng-repeat="todo in todos | uniq: 'cat' | orderBy: 'cat'">
             <td ng-click="filterCateg(todo.cat)" ui-sref="filtro">
-              <i class="material-icons small-icon">keyboard_arrow_right</i>&nbsp;{{todo.cat}}&nbsp;&nbsp;&nbsp;<span class="label label-danger">{{remainingCategLeft(todo.cat)}} faltando</span>&nbsp&nbsp<span class="label label-success">{{remainingCategDone(todo.cat)}} completadas</span>&nbsp&nbsp<span class="label label-info">{{remainingCateg(todo.cat)}} total</span></td>
+              <i class="material-icons small-icon">keyboard_arrow_right</i>&nbsp;{{todo.cat}}&nbsp;&nbsp;&nbsp;
+              <span class="label label-danger">{{remainingCategLeft(todo.cat)}}
+                faltando</span>&nbsp&nbsp
+              <span class="label label-success">{{remainingCategDone(todo.cat)}}
+                completadas</span>&nbsp&nbsp
+              <span class="label label-info">{{remainingCateg(todo.cat)}}
+                total</span>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -29,7 +36,14 @@
         <tbody>
           <tr ng-repeat="categ in categs | orderBy: 'cat'">
             <td ng-click="filterCateg(categ.cat)" ui-sref="filtro">
-              <i class="material-icons small-icon">keyboard_arrow_right</i>&nbsp;{{categ.cat}}&nbsp;&nbsp;&nbsp;<span class="label label-danger">{{remainingCategLeft(categ.cat)}} faltando</span>&nbsp&nbsp<span class="label label-success">{{remainingCategDone(categ.cat)}} completadas</span>&nbsp&nbsp<span class="label label-info">{{remainingCateg(categ.cat)}} total</span></td>
+              <i class="material-icons small-icon">keyboard_arrow_right</i>&nbsp;{{categ.cat}}&nbsp;&nbsp;&nbsp;
+              <span class="label label-danger">{{remainingCategLeft(categ.cat)}}
+                faltando</span>&nbsp&nbsp
+              <span class="label label-success">{{remainingCategDone(categ.cat)}}
+                completadas</span>&nbsp&nbsp
+              <span class="label label-info">{{remainingCateg(categ.cat)}}
+                total</span>
+            </td>
           </tr>
         </tbody>
       </table>
