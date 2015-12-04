@@ -37,7 +37,7 @@
       </button>
     </div>
   </div>
-  <div class="panel panel-default" ng-show="checkCat()">
+  <div class="panel panel-default">
     <div class="panel-heading">
       Adicionar Tarefa
       <span class="label label-info" style="float:right;">
@@ -45,7 +45,7 @@
       </span>
     </div>
     <div class="panel-body">
-      <form id="formAddTodo" name="formAddTodo" ng-submit="addTodo()">
+      <form id="formAddTodo" name="formAddTodo" ng-submit="addTodo()" ng-show="checkCat()">
         <div class="form-group label-floating">
           <label class="control-label" for="newTodo">O que precisa ser feito?</label>
           <input autocomplete="off" class="form-control" id="newTodo" name="newTodo" ng-maxlength=40 ng-minlength=3 ng-model="newTodo" ng-pattern="/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/" required type="text">
@@ -61,6 +61,13 @@
           <span>&nbsp;Adicionar Tarefa</span>
         </button>
       </form>
+      <div ng-hide="checkCat()">
+      <button class="btn btn-danger btn-raised btn-block" disabled>
+        <i class="material-icons">remove_circle</i>
+        <span>&nbsp;Categoria não existe mais</span>
+      </button>
+      </div>
     </div>
   </div>
+</div>
 </div>

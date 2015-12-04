@@ -219,12 +219,11 @@ app.controller('FiltragemController', ['$scope', function($scope) { // Filtro
     }
   };
 
-  $scope.checkCat = function(catToFilter) {
+  $scope.checkCat = function() {
     var showAdd = false;
     for (var i = 0; i < $scope.categs.length; i++) {
       if ($scope.categs[i].cat === $scope.catToFilter) {
         showAdd = true;
-        console.log("Categoria encontrada");
       }
     }
     return showAdd;
