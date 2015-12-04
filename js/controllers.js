@@ -218,4 +218,15 @@ app.controller('FiltragemController', ['$scope', function($scope) { // Filtro
       localStorage.setItem('todos', JSON.stringify($scope.todos));
     }
   };
+
+  $scope.checkCat = function(catToFilter) {
+    var showAdd = false;
+    for (var i = 0; i < $scope.categs.length; i++) {
+      if ($scope.categs[i].cat === $scope.catToFilter) {
+        showAdd = true;
+        console.log("Categoria encontrada");
+      }
+    }
+    return showAdd;
+  };
 }]);
