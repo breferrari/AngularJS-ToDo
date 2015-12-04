@@ -1,11 +1,35 @@
 <div ng-controller="CategoriasController">
   <div class="panel panel-default">
-    <div class="panel-heading">Categorias com Tarefas Existentes</div>
+    <div class="panel-heading">
+      Categorias com Tarefas Existentes
+      <span class="label label-info" style="float:right;">
+        Selecione uma categoria para filtrar.
+      </span>
+    </div>
     <div class="panel-body">
       <table class="table table-striped table-hover">
         <tbody>
           <tr ng-repeat="todo in todos | uniq: 'cat' | orderBy: 'cat'">
-            <td ng-click="filterCateg(todo.cat)" ui-sref="filtro">{{todo.cat}}</td>
+            <td ng-click="filterCateg(todo.cat)" ui-sref="filtro">
+              <i class="material-icons small-icon">keyboard_arrow_right</i>&nbsp;{{todo.cat}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Categorias Cadastradas
+      <span class="label label-info" style="float:right;">
+        Selecione uma categoria para filtrar.
+      </span>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped table-hover">
+        <tbody>
+          <tr ng-repeat="categ in categs | orderBy: 'cat'">
+            <td ng-click="filterCateg(categ.cat)" ui-sref="filtro">
+              <i class="material-icons small-icon">keyboard_arrow_right</i>&nbsp;{{categ.cat}}</td>
           </tr>
         </tbody>
       </table>
@@ -46,7 +70,7 @@
       <form class="form-group has-error label-floating" name="formRmCateg" ng-submit="removeCateg()">
         <label class="control-label" for="rmCateg">Que categoria deseja remover?</label>
         <select class="form-control" id="rmCateg" ng-model="rmCateg" ng-options="categ.cat for categ in categs | orderBy: 'cat'" required>
-          <option value="">-- Escolher categoria --</option>
+          <option disabled selected value="">-- Escolher categoria --</option>
         </select>
         <button class="btn btn-danger btn-raised btn-block" ng-disabled="formRmCateg.$invalid">
           <i class="material-icons">remove_circle</i>

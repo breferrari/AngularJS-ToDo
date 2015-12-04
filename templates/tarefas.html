@@ -65,7 +65,7 @@
         <div class="form-group label-floating">
           <label class="control-label" for="inCateg">Em qual categoria?</label>
           <select class="form-control" id="inCateg" ng-model="inCateg" ng-options="categ.cat for categ in categs | orderBy: 'cat'" required>
-            <option value="">-- Escolher categoria --</option>
+            <option disabled selected value="">-- Escolher categoria --</option>
           </select>
         </div>
         <button class="btn btn-success btn-raised btn-block" ng-disabled="formAddTodo.$invalid">

@@ -103,7 +103,7 @@ app.controller('TarefasController', ['$scope', function($scope) { // Tarefas
     var addToArrayToDo = true;
 
     for (var i = 0; i < $scope.todos.length; i++) {
-      if (($scope.todos[i].text === $scope.newTodo) && ($scope.todos[i].cat === $scope.catToFilter)) {
+      if (($scope.todos[i].text === $scope.newTodo) && ($scope.todos[i].cat === $scope.inCateg.cat)) {
         addToArrayToDo = false;
       }
     }
@@ -119,7 +119,7 @@ app.controller('TarefasController', ['$scope', function($scope) { // Tarefas
     if (addToArrayToDo === true) {
       $scope.todos.push({
         'text': $scope.newTodo,
-        'cat': $scope.catToFilter,
+        'cat': $scope.inCateg.cat,
         'done': false
       });
       $scope.newTodo = '';
