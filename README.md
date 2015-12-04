@@ -10,7 +10,7 @@ Uma aplicação de bloco de tarefas. Tarefas são inclusas por categoria e podem
 - Filtragem com input
 - Filtragem por categoria
 - Ordenação alfabetica crescente e decrescente
-- Total de tarefas feitas com e sem filtragem
+- Contadores de tarefas variados, com e sem filtragem
 
 
 ## O que foi utilizado?
