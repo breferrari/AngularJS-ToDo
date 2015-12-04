@@ -7,10 +7,8 @@ Assessment do bloco de Frameworks Front-end e Conexão com Back-end do curso de
 Uma aplicação de bloco de tarefas. Tarefas são inclusas por categoria e podem ser filtradas conforme necessário.
 
 ## O que faz?
-- Adiciona Tarefas
-- Remove Tarefas
-- Adiciona Categorias
-- Remove Categorias
+- Adiciona/Remove Tarefas
+- Adiciona/Remove Categorias
 - Filtragem com input
 - Filtragem por categoria
 - Ordenação alfabetica crescente e decrescente
@@ -28,5 +26,5 @@ Uma aplicação de bloco de tarefas. Tarefas são inclusas por categoria e podem
 - Google Fonts (Roboto e Material Icons)
 
 ## Features
-- Uso de localstorage para armazenar através de stringify
+- Persistencia com localstorage para armazenar através de stringify
 - Single Page Application utilizando Router-UI
