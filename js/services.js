@@ -1,6 +1,6 @@
 // var module = angular.module('TpModule', []);
 
-module.service("repo", function() {
+app.service("repo", function() {
   // Loads to localStorage
   this.getAll = function(typeName) {
     if (localStorage[typeName]) {

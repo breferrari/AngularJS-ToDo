@@ -25,7 +25,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-class="{'active':todo.done}" ng-click="todoCheck(todo)" ng-repeat="todo in todos | orderBy: orderTodo | filter: catToFilter track by $index">
+          <tr ng-class="{'active':todo.done}" ng-click="todoCheck(todo)" ng-repeat="todo in todos | orderBy: orderTodo | groupBy: todo.text | filter: catToFilter track by $index">
             <td><input ng-checked="todo.done" ng-click="todoCheck(todo)" ng-model="todo.done" type="checkbox"></td>
             <td ng-class="{'done':todo.done}">{{todo.text}}</td>
           </tr>
